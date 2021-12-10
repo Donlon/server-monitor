@@ -51,8 +51,6 @@ def collector(request: WSGIRequest, client_name: str, tag=''):
     except Exception as e:
         return HttpResponseServerError('Can\'t Decode request body as UTF-8.')
 
-    print(content)
-
     rec = Record(target=client,
                  addr=get_client_addr(request),
                  tag=tag,
