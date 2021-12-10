@@ -9,6 +9,11 @@ ENV APP_DB_PATH=/data
 
 WORKDIR /code
 
+RUN groupadd -r django && useradd -u 1000 -r -g django django \
+    && mkdir -p /home/django ${APP_DB_PATH} && chown -R django:django /home/django ${APP_DB_PATH}
+
+USER django
+
 COPY requirements.txt .
 
 RUN pip install --no-warn-script-location --no-cache-dir --user -r requirements.txt
@@ -16,7 +21,7 @@ RUN pip install --no-warn-script-location --no-cache-dir --user -r requirements.
 COPY ./src .
 COPY ./docker/entrypoint.sh /usr/local/bin
 
-RUN mkdir -p ${APP_DB_PATH} && chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 VOLUME [ "/data" ]
 
