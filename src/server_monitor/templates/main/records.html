@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load truncate_content %}
+
+{% block title %}Records{% endblock %}
+
+{% block breadcrumb %}
+<li><a>Query</a></li>
+<li class="is-active"><a href="#">Records</a></li>
+{% endblock %}
+
+{% block page_title %}Records{% endblock %}
+
+{% block page_content %}
+{% if record_list %}
+<table class="table"> 
+    <thead>
+        <th>Target</th>
+        <th>Time</th>
+        <th>Address</th>
+        <th>Tag</th>
+        <th>Content</th>
+    </thead>
+    {% for record in record_list %}
+    <tr>
+        <td>{{ record.target.name }}</td>
+        <td>{{ record.insert_time | date:"Y-m-d H:i:s" }}</td>
+        {% comment %} TODO: filter data with JavaScript {% endcomment %}
+        <td>{{ record.addr }}</td>
+        <td><a href="{{ request.path }}?record={{ record.tag }}">{{ record.tag }}</a></td>
+        <td><a href="{% url 'main:record' record.id %}">{{ record.content | truncate_content:30 }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No records were registered.</p>
+{% endif %}
+
+{% endblock %}

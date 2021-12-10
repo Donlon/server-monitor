@@ -1,0 +1,12 @@
+.vscode/
+.idea/
+.github/
+__pycache__/
+.gitignore
+
+src/tmp/
+src/db/
+
+localtest/
+data/
+log/

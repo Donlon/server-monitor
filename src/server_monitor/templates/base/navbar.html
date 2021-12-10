@@ -1,0 +1,54 @@
+{% load static %}
+
+<nav class="navbar is-white">
+  <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item brand-text" href="/"> Server Monitor </a>
+        <div class="navbar-burger burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+
+        {# Query #}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <span class="navbar-link is-hidden-touch">
+            Query
+          </span>
+          <span class="navbar-link is-arrowless is-hidden-desktop">
+            Query
+          </span>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{% url "main:records" %}">
+              Records
+            </a>
+          </div>
+        </div>
+        {# Manage #}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <span class="navbar-link is-hidden-touch">
+            Manage
+          </span>
+          <span class="navbar-link is-arrowless is-hidden-desktop">
+            Manage
+          </span>
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              Authentication
+            </a>
+            <a class="navbar-item" href="{% url "main:clients" %}">
+              Clients
+            </a>
+          </div>
+        </div>
+        <a class="navbar-item">
+          About
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>

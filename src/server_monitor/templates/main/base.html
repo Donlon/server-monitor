@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block head %}<link rel="stylesheet" href="{% static "css/home/page.css" %}">{% endblock %}
+
+{% block content %}
+    {% include "base/navbar.html" %}
+
+    <section class="breadcrumb-section section">
+        <div class="container">
+            <nav class="breadcrumb is-pulled-left" aria-label="breadcrumbs">
+                <ul>
+                    {% block breadcrumb %}{% endblock %}
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content">
+                <h1>{% block page_title %}{% endblock %}</h1>
+                <div>{% block page_content %}{% endblock %}</div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

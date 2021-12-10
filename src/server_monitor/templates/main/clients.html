@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block breadcrumb %}
+<li><a>Manage</a></li>
+<li class="is-active"><a href="#">Clients</a></li>
+{% endblock %}
+
+{% block page_title %}Registered Clients{% endblock %}
+
+{% block page_content %}
+{% if client_list %}
+<table class="table"> 
+    <thead>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+    </thead>
+    {% for client in client_list %}
+    <tr>
+        <td>{{ client.name }}</td>
+        <td>{{ client.desc }}</td>
+        <td class="client-{{ client.active | yesno:'active,inactive' }}">{{ client.active | yesno:'Active,Inactive' }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No clients were registered.</p>
+{% endif %}
+{% endblock %}

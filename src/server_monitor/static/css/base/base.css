@@ -1,0 +1,102 @@
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100%;
+    background: #ECF0F3;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+body.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main.site-content {
+    flex: 1;
+}
+
+.card.has-equal-height {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+nav.navbar {
+    border-top: 3px solid #276cda;
+    padding-right: 0.8em;
+    height: 1.5rem !important;
+}
+
+.navbar-item.brand-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.navbar-item .navbar-link {
+    padding-left: 1.5em;
+    padding-right: 2.5em;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    right: 1.125em;
+    margin-top: -0.455em;
+}
+
+.navbar-item.has-no-highlight:hover {
+    background-color: transparent;
+}
+
+#navbar-banner {
+    background-color: transparent;
+}
+
+/* Navbar "more" menu should be on top of messages. I could not figure
+ * out a better way to fix this one without just applying a high z-index
+ * to everything - anyone have any better ideas? Does it matter since the
+ * navbar should be above everything anyway?
+ */
+
+ .navbar, .navbar * {
+    z-index: 1001;
+}
+
+/* footer */
+footer {
+    font-size: 16px;
+    padding: .7rem 2rem .6rem !important;
+}
+
+footer #django-logo {
+    background: url(https://static.djangoproject.com/img/logos/django-logo-negative.png) no-repeat center;
+    filter: grayscale(1) invert(0.02);
+    background-size: 52px 25.5px;
+    background-position: -1px -2px;
+    color: #00000000;
+}
+
+footer #bulma-logo {
+    padding-left: 18px;
+    /* height: 20px; */
+    background: url(https://bulma.io/images/bulma-logo-white.png) no-repeat center;
+    background-size: 60px;
+    color: #00000000;
+}
+
+footer a {
+    color: #ECF0F3;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+footer .beian {
+    font-size: 15px;
+}
+
+footer .beian .koishi:hover{
+    color: rgb(199,238,159)
+}

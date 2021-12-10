@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Record Info{% endblock %}
+
+{% block breadcrumb %}
+<li><a>Query</a></li>
+<li><a href="{% url 'main:records' %}">Records</a></li>
+<li class="is-active"><a href="#">{{ record.id }}</a></li>
+{% endblock %}
+
+{% if record %}
+{% block page_title %}Record from <a>{{ record.target.name }}</a>{% endblock %}
+{% endif %}
+
+{% block page_content %}
+    {% if record %}
+    <p>
+        <strong>ID:</strong> {{ record.id }}
+        <br/>
+        <strong>Client address:</strong> {{ record.addr }}
+        <br/>
+        <strong>Tag:</strong> {{ record.tag }}
+        <br/>
+        <strong>Time:</strong> {{ record.insert_time | date:"Y-m-d H:i:s" }}
+    </p>
+    <pre class="has-background-light">{{ record.content }}</pre>
+    {% else %}
+    <p>Sorry, this page is not found.</p>
+    {% endif %}
+{% endblock %}
